@@ -23,7 +23,7 @@ fi
 sudo ln -s -f /data/web_static/releases/test/ /data/web_static/current
 
 # give ownership of the /data/ folder to the ubuntu user AND group
-sudo chown -R ubuntu:ubuntu /data/
+sudo chown -hR ubuntu:ubuntu /data/
 
 # Update the Nginx configuration to serve the file content
 sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t\tautoindex off;\n\t}\n' /etc/nginx/sites-enabled/default
