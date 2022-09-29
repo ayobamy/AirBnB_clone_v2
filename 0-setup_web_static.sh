@@ -6,8 +6,8 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 
 # creating paths
-mkdir -p /data/web_static/releases/test/
-mkdir -p /data/web_static/shared
+sudo mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/shared
 
 # Print Welcome message
 echo "Welcome to my site!" >> /data/web_static/releases/test/index.html
@@ -19,7 +19,7 @@ then
 fi
 
 # creating a symbolink link  linked to the folder
-ln -s -f /data/web_static/releases/test/ /data/web_static/current
+sudo ln -s -f /data/web_static/releases/test/ /data/web_static/current
 
 # give ownership of the /data/ folder to the ubuntu user AND group
 sudo chown -R ubuntu:ubuntu /data/
