@@ -10,7 +10,8 @@ sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared
 
 # Print Welcome message
-echo "Welcome to my site!" >> /data/web_static/releases/test/index.html
+echo "<h1>Welcome to my site!<h1>"
+ >> /data/web_static/releases/test/index.html
 
 # Check if directory current exist
 if [ -d "/data/web_static/current" ]
