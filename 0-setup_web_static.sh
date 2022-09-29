@@ -8,6 +8,7 @@ sudo apt-get -y install nginx
 # creating paths
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared
+sudo touch /data/web_static/releases/test/index.html
 
 # Print Welcome message
 echo "<h1>Welcome to my site!<h1>" >> /data/web_static/releases/test/index.html
