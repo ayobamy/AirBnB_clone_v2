@@ -32,7 +32,7 @@ exec {'create second directory':
 
 exec {'content into html':
   provider => shell,
-  command  => 'echo "Holberton School" | sudo tee /data/web_static/releases/test/index.html',
+  command  => 'echo "Welcome to my site!" | sudo tee /data/web_static/releases/test/index.html',
   before   => Exec['symbolic link'],
 }
 
