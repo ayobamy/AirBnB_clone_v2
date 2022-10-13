@@ -8,9 +8,7 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello_route():
-	"""
-	This is a route that will be called when the application is initialized
-    """
+	"""function for web app route"""
     return "Hello HBNB!"
 
 if __name__ == "__main__":
