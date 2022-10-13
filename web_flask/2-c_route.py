@@ -8,7 +8,6 @@ Routes:	/: display “Hello HBNB!”
 """
 
 from flask import Flask
-from markupsafe import escape
 
 
 app = Flask(__name__)
@@ -26,9 +25,9 @@ def hbnb_route():
 @app.route("/c/<text>", strict_slashes=False)
 def c_route(text):
 	"""displays value of /c/<text> web app route"""
-	
-	return 
+	text = text.replace("_", " ")
+	return "C " % text
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)
