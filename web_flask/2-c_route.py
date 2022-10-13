@@ -26,7 +26,7 @@ def hbnb_route():
 def c_route(text):
 	"""displays value of /c/<text> web app route"""
 	text = text.replace("_", " ")
-	return "C " % text
+	return f"C {text}"
 
 
 if __name__ == "__main__":
