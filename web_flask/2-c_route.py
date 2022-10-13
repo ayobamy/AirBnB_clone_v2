@@ -24,7 +24,7 @@ def hbnb_route():
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_route():
-	"""displays /c/<text> web app route"""
+	"""displays value of /c/<text> web app route"""
 	return 
 
 
