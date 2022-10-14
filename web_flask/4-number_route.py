@@ -6,7 +6,7 @@ Routes:	/: display “Hello HBNB!”
     /hbnb: display “HBNB”
     /c/<text>: display “C” followed by the value of text
     /python/(<text>): display python followed by the text
-	/number/<n>: display “n is a number” only if n is an integer
+    /number/<n>: display “n is a number” only if n is an integer
 """
 from flask import Flask
 
@@ -44,8 +44,8 @@ def python_route(text="is cool"):
 @app.route('/number', strict_slashes=False)
 @app.route('/number/<int:n>', strict_slashes=False)
 def number_route(n):
-	"""displays /number/<n> web app route"""
-	return "%d is a number" % n
+    """displays /number/<n> web app route"""
+    return "%d is a number" % n
 
 
 if __name__ == "__main__":
