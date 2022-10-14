@@ -41,7 +41,6 @@ def python_route(text="is cool"):
     return "Python %s" % text
 
 
-@app.route('/number', strict_slashes=False)
 @app.route('/number/<int:n>', strict_slashes=False)
 def number_route(n):
     """displays /number/<n> web app route"""
