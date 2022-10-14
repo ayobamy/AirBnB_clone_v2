@@ -10,6 +10,7 @@ Routes:	/: display “Hello HBNB!”
     /number_template/<n>: display a HTML page only if n is an int
 """
 from flask import Flask
+from flask import render_template
 
 
 app = Flask(__name__)
@@ -46,6 +47,12 @@ def python_route(text="is cool"):
 def number_route(n):
     """displays /number/<n> web app route"""
     return "%d is a number" % n
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n):
+    """displays a HTML page only if n is an int"""
+    return render_template("5-number.html", n=n)
 
 
 if __name__ == "__main__":
