@@ -2,6 +2,7 @@
 """ Console Module """
 import cmd
 import sys
+import utils
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
@@ -115,16 +116,40 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
-        if not args:
+        """ Create an object of any class"""
+        args_split = args.split()
+
+        if not args_split[0]:
             print("** class name missing **")
             return
-        elif args not in HBNBCommand.classes:
+        elif args_split[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        new_instance = HBNBCommand.classes[args]()
-        storage.save()
-        print(new_instance.id)
-        storage.save()
+
+        else:
+            if (len(args_split) == 1):
+                print(eval(args_split[0])().id)
+                storage.save()
+                return False
+            clsName = args_split[0] + "." + eval(args_split[0])().id
+            for arg in args_split[1:]:
+                key, value = arg.split('=')
+
+                if not utils.is_floatstring(value):
+                    if ' ' in value:
+                        return
+                    value = value.replace('_', ' ')
+                    value = value.strip('"')
+                if utils.is_floatstring(value) == 1:
+                    try:
+                        value = int(value)
+                    except Exception:
+                        value = float(value)
+
+                setattr(storage.all()[clsName], key, value)
+            _, id = clsName.split('.')
+            print(id)
+            storage.all()[clsName].save() me
 
     def help_create(self):
         """ Help information for the create method """
