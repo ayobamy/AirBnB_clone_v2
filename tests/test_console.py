@@ -54,7 +54,7 @@ class TestHBNBCommand(unittest.TestCase):
                 cons.onecmd('create User')
             # creating a User instance
             clear_stream(cout)
-            cons.onecmd('create User email="ayobamyahmed@gmail.com" password="123"')
+            cons.onecmd('create User email="ayo15@gmail.com" password="123"')
             mdl_id = cout.getvalue().strip()
             dbc = MySQLdb.connect(
                 host=os.getenv('HBNB_MYSQL_HOST'),
@@ -67,7 +67,7 @@ class TestHBNBCommand(unittest.TestCase):
             cursor.execute('SELECT * FROM users WHERE id="{}"'.format(mdl_id))
             result = cursor.fetchone()
             self.assertTrue(result is not None)
-            self.assertIn('ayobamyahmed@gmail.com', result)
+            self.assertIn('ayo15@gmail.com', result)
             self.assertIn('123', result)
             cursor.close()
             dbc.close()
@@ -80,7 +80,7 @@ class TestHBNBCommand(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()
             # showing a User instance
-            obj = User(email="ayobamyahmed@gmail.com", password="123")
+            obj = User(email="ayo15@gmail.com", password="123")
             dbc = MySQLdb.connect(
                 host=os.getenv('HBNB_MYSQL_HOST'),
                 port=3306,
@@ -111,9 +111,9 @@ class TestHBNBCommand(unittest.TestCase):
             cons.onecmd('show User {}'.format(obj.id))
             result = cursor.fetchone()
             self.assertTrue(result is not None)
-            self.assertIn('ayobamyahmed@gmail.com', result)
+            self.assertIn('ayo15@gmail.com', result)
             self.assertIn('123', result)
-            self.assertIn('ayobamyahmed@gmail.com', cout.getvalue())
+            self.assertIn('ayo15@gmail.com', cout.getvalue())
             self.assertIn('123', cout.getvalue())
             cursor.close()
             dbc.close()
