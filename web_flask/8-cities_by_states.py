@@ -11,9 +11,10 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.route("/states_list", strict_slashes=False)
-def states_list():
-    """Displays list of all State objects in DBStorage.
+@app.route("/cities_by_states", strict_slashes=False)
+def cities_by_states():
+    """
+    Displays list of all cities by State objects in DBStorage.
     """
     states = storage.all("State")
     return render_template("8-cities_by_states.html", states=states)
