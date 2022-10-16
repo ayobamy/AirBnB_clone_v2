@@ -149,7 +149,7 @@ class HBNBCommand(cmd.Cmd):
                 setattr(storage.all()[clsName], key, value)
             _, id = clsName.split('.')
             print(id)
-            storage.all()[clsName].save() me
+            storage.all()[clsName].save()
 
     def help_create(self):
         """ Help information for the create method """
