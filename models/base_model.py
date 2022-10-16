@@ -20,7 +20,7 @@ class BaseModel:
         self.id = str(uuid.uuid4())
         if not kwargs:
             from models import storage
-            
+
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
         else:
@@ -60,9 +60,8 @@ class BaseModel:
         dictionary['updated_at'] = self.updated_at.isoformat()
         if '_sa_instance_state' in dictionary.keys():
             del dictionary['_sa_instance_state']
-        
-        return dictionary
 
+        return dictionary
 
     def delete(self):
         """delete the current instance from storage"""
